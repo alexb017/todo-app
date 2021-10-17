@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <h1>To-Do List App</h1>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="info">
+        <h1>Hello!</h1>
+        <p>Add new things to the list, to get more done.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="form">
+        <form id="form">
+          <label for="todo-title">Todo:</label>
+          <input type="text" id="todo-title" placeholder="Enter your todo..." />
+          <select id="todo-category">
+            <option value="">Category</option>
+            <option value="personal">Personal</option>
+            <option value="hobby">Hobby</option>
+            <option value="work">Work</option>
+          </select>
+          <input type="submit" class="btn" value="Add todo" />
+        </form>
+      </div>
+      <div class="divider"></div>
+      <div class="result">
+        <h1>To-Do list:</h1>
+        <label>
+          Filter:
+          <select id="todo-filter">
+            <option value="">Show all</option>
+            <option value="personal">Personal</option>
+            <option value="hobby">Hobby</option>
+            <option value="work">Work</option>
+          </select>
+        </label>
+        <ul id="todo-list"></ul>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
