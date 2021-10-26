@@ -4,7 +4,7 @@ const category = document.querySelector('#todo-category');
 const filter = document.querySelector('#todo-filter');
 const list = document.querySelector('#todo-list');
 
-// array of objects with todos
+// array of todos
 let todos = [
   {
     title: 'Learn Programming',
@@ -26,7 +26,6 @@ let todos = [
 
 // render function
 const render = (items) => {
-  // console.log(items);
   list.innerHTML = '';
   items.forEach((item) => {
     const li = document.createElement('li');
@@ -43,7 +42,7 @@ const render = (items) => {
 // render todos on page load
 render(todos);
 
-//
+// remove todo by his title
 const eventRemoveTodo = (event) => {
   if (event.target.className === 'remove-item') {
     removeTodo(todos, event.target.parentElement.firstElementChild.textContent);
@@ -62,6 +61,7 @@ const addTodo = (title, category) => {
   todos.push(todo);
 };
 
+// remove todo
 const removeTodo = (items, value) => {
   todos = items.filter((item) => {
     return !value.includes(item.title);
@@ -71,6 +71,7 @@ const removeTodo = (items, value) => {
   render(todos);
 };
 
+// submit the form, add a new todo
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -81,18 +82,22 @@ form.addEventListener('submit', (event) => {
   category.value = '';
 });
 
+// get the personal todo
 const getPersonal = () => {
   return todos.filter((todo) => todo.category === 'personal');
 };
 
+// get the hobby todo
 const getHobby = () => {
   return todos.filter((todo) => todo.category === 'hobby');
 };
 
+// get the work todo
 const getWork = () => {
   return todos.filter((todo) => todo.category === 'work');
 };
 
+// filter todos by category
 filter.addEventListener('change', () => {
   if (filter.value === 'personal') {
     render(getPersonal());
